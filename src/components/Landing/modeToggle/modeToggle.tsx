@@ -28,9 +28,9 @@ export function ModeToggle() {
   }
 
   const options: { label: string; value: ThemeOption; color: string }[] = [
-    { label: 'Light', value: 'light', color: 'text-yellow-500' },
-    { label: 'Dark', value: 'dark', color: 'text-blue-400' },
-    { label: 'System', value: 'system', color: 'text-green-400' },
+    { label: 'روشن', value: 'light', color: 'text-yellow-500' },
+    { label: 'تاریک', value: 'dark', color: 'text-blue-400' },
+    { label: 'سیستم', value: 'system', color: 'text-green-400' },
   ]
 
   return (
@@ -38,7 +38,7 @@ export function ModeToggle() {
       <button
         onClick={() => setOpen(!open)}
         disabled={isLoading}
-        className="relative w-12 h-12 rounded-xl
+        className="relative w-12 h-12 rounded-xl cursor-pointer
           bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900
           border border-gray-300 dark:border-gray-700
           shadow-lg flex items-center justify-center hover:shadow-xl transition-all

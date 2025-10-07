@@ -36,7 +36,7 @@ export default function FeatureSection() {
         />
       </div>
       <div className="container">
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}

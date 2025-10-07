@@ -1,8 +1,12 @@
 import Image from 'next/image'
 import HeroTitle from '@/components/Landing/HeroTitle/HeroTitle'
 import FeatureSection from '../components/Landing/FeatureSection/FeatureSection'
+import CountryCard from '../components/Landing/CountryCard/CountryCard'
+import { fetchCountries } from '../utils/api/Request'
 
-export default function Home() {
+export default async function Home() {
+  const countries = await fetchCountries()
+
   return (
     <>
       <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
@@ -21,7 +25,11 @@ export default function Home() {
         </div>
       </section>
       <section>
-          <FeatureSection />
+        <FeatureSection />
+      </section>
+
+      <section>
+        <CountryCard countries={countries} />
       </section>
     </>
   )
