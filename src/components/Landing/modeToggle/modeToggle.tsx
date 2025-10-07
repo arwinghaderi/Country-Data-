@@ -57,7 +57,6 @@ export function ModeToggle() {
               <Loader2 className="h-5 w-5 text-gray-500 dark:text-gray-400 animate-spin" />
             </motion.div>
           ) : (
-            // 🌗 آیکن تم فعلی پس از آماده‌شدن
             <motion.div
               key={activeTheme}
               initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
@@ -79,7 +78,7 @@ export function ModeToggle() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 mt-3 w-44 rounded-2xl
+            className="absolute left-0 mt-3 w-44 rounded-2xl
               bg-white/95 dark:bg-gray-900/90
               backdrop-blur-md
               shadow-2xl border border-gray-200 dark:border-gray-700

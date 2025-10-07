@@ -10,7 +10,46 @@
   --font-mono: monospace;
 }
 
+@utility container {
+  margin-right: auto;
+  margin-left: auto;
 
+
+  max-width: 100%;
+
+  padding-right: 16px;
+  padding-left: 16px;
+
+  @media (min-width: 576px) {
+    max-width: calc(576px - 32px);
+  }
+
+  @media (max-width: 576px) {
+    max-width: calc(576px - 32px);
+  }
+
+  @media (min-width: 640px) {
+    max-width: calc(640px - 32px);
+  }
+
+  @media (min-width: 768px) {
+    max-width: calc(768px - 32px);
+
+  }
+
+  @media (min-width: 1024px) {
+    max-width: calc(1024px - 32px);
+  }
+
+  @media (min-width: 1280px) {
+    max-width: calc(1280px - 32px);
+    /* 96% of 1280px + 4px padding */
+  }
+
+  @media (min-width: 1440px) {
+    max-width: calc(1440px - 32px);
+  }
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -23,4 +62,5 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  direction: rtl;
 }
