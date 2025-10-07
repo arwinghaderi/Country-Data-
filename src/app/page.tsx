@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import HeroTitle from '@/components/Landing/HeroTitle/HeroTitle'
-import FeatureSection from '../components/Landing/FeatureSection/FeatureSection'
-import CountryCard from '../components/Landing/CountryCard/CountryCard'
-import { fetchCountries } from '../utils/api/Request'
+import FeatureSection from '@/components/Landing/FeatureSection/FeatureSection'
+import { fetchCountries } from '@/utils/api/Request'
+import CountrySection from '@/components/Landing/CountrySection/CountrySection'
 
 export default async function Home() {
   const countries = await fetchCountries()
@@ -17,20 +17,15 @@ export default async function Home() {
           priority
           className="object-cover object-center brightness-[0.6]"
         />
-
         <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/40 to-transparent" />
-
-        <div className="relative z-10 text-right px-8 sm:px-16 md:px-24  w-full md:w-1/2">
+        <div className="relative z-10 text-right px-8 sm:px-16 md:px-24 w-full md:w-1/2">
           <HeroTitle />
         </div>
       </section>
-      <section>
-        <FeatureSection />
-      </section>
 
-      <section>
-        <CountryCard countries={countries} />
-      </section>
+      <FeatureSection />
+
+      <CountrySection initialCountries={countries} />
     </>
   )
 }
