@@ -28,13 +28,13 @@ export default function Navbar() {
             <>
               <a
                 href="#features"
-                className="text-gray-700 text-lg dark:text-gray-200 hover:text-amber-500 transition-colors font-medium"
+                className="text-gray-700 md:text-lg dark:text-gray-200 hover:text-amber-500 transition-colors font-medium"
               >
                 ویژگی‌ها
               </a>
               <a
                 href="#countries"
-                className="text-gray-700 text-lg dark:text-gray-200 hover:text-amber-500 transition-colors font-medium"
+                className="text-gray-700 md:text-lg dark:text-gray-200 hover:text-amber-500 transition-colors font-medium"
               >
                 کشورها
               </a>
