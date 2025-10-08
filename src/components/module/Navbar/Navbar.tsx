@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white dark:bg-gray-900 sticky top-0 z-50 transition-colors shadow-sm shadow-amber-400">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div className=' flex items-center   justify-start gap-15 '>
+        <div className=' flex items-center   justify-start gap-5 md:gap-15 '>
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/logo.png"

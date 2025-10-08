@@ -119,7 +119,7 @@ export default function CountrySection({
   return (
     <section className="bg-gray-50 dark:bg-gray-900 py-16 transition-colors duration-500">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4">
+        <div className="flex flex-col lg:flex-row items-start md:items-center justify-between mb-10 gap-4">
           <SectionHeader
             title="کشورهای جهان 🌍"
             dec="شما می‌توانید جزئیات تمامی کشورهای جهان را مشاهده کنید"
