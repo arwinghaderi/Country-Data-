@@ -124,8 +124,6 @@ export default function CountryFilter({
               {regions.find((r) => r.value === region)?.label ||
                 '🌐 همه قاره‌ها'}
             </span>
-
-            {/* آیکون با انیمیشن چرخش */}
             <motion.div
               animate={{ rotate: selectOpen ? 180 : 0 }}
               transition={{ duration: 0.25 }}

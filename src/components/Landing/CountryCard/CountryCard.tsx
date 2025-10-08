@@ -8,7 +8,7 @@ import { Globe2 } from 'lucide-react'
 import { Country } from '../../../types/module'
 
 interface CountryCardProps {
-  countries: Country[]
+  countries: Country[] 
 }
 
 export default function CountryCard({ countries }: CountryCardProps) {

@@ -1,29 +1,37 @@
-'use client'
-
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import type { Metadata } from 'next'
+import '@/app/globals.css'
+import Providers from './providers'
 import Navbar from '@/components/module/Navbar/Navbar'
 import Footer from '@/components/module/Footer/Footer'
-import { ThemeProvider } from '@/components/module/ThemeProvider/ThemeProvider'
-import '@/app/globals.css'
-import { useState } from 'react'
+
+export const metadata: Metadata = {
+
+  description: 'مشاهده و جزئیات کشورهای جهان در لوکو 🌍',
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
+  openGraph: {
+    title: 'لوکو | جزئیات کشورهای جهان',
+    description: 'با لوکو، جزئیات کامل کشورهای جهان را ببینید 🌎',
+    images: ['/logo.png'],
+  },
+}
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [queryClient] = useState(() => new QueryClient())
-
   return (
     <html lang="fa" suppressHydrationWarning className="dark">
       <body className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <QueryClientProvider client={queryClient}>
-            <Navbar />
-            {children}
-            <Footer />
-          </QueryClientProvider>
-        </ThemeProvider>
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

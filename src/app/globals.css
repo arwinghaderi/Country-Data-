@@ -58,9 +58,13 @@
   }
 }
 
+html{
+  scroll-behavior: smooth;
+}
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   direction: rtl;
+  scroll-behavior: smooth;
 }

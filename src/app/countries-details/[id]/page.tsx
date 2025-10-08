@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import {
   fetchCountryDetails,
   fetchNeighborCountries,
@@ -12,6 +13,37 @@ import SectionHeader from '@/components/module/sectionHeader/sectionHeader'
 
 interface CountryPageProps {
   params: { id: string }
+}
+
+
+interface CountryPageProps {
+  params: { id: string }
+}
+
+export async function generateMetadata({
+  params,
+}: CountryPageProps): Promise<Metadata> {
+  const country = await fetchCountryDetails(params.id)
+
+  if (!country) {
+    return {
+      title: 'کشور یافت نشد | لوکو 🌍',
+      description: 'اطلاعات این کشور در دسترس نیست.',
+    }
+  }
+
+  return {
+    title: `جزئیات کشور ${country.name.common} | لوکو 🌍`,
+    description: `مشاهده اطلاعات کامل کشور ${country.name.common} در لوکو — پایتخت، جمعیت، زبان و بیشتر.`,
+    icons: {
+      icon: '/logo.png',
+    },
+    openGraph: {
+      title: `کشور ${country.name.common} | لوکو`,
+      description: `اطلاعات کامل درباره کشور ${country.name.common} 🌍`,
+      images: [country.flags?.png || '/logo.png'],
+    },
+  }
 }
 
 export default async function CountryPage({ params }: CountryPageProps) {
@@ -41,7 +73,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
       <section className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-16 transition-colors duration-500">
         <div className="container mx-auto px-4">
           <Link
-            href="/#countris"
+            href="/#countries"
             className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-5 py-3 text-sm shadow hover:shadow-md transition-all mb-10"
           >
             <ArrowLeft className="w-4 h-4" /> بازگشت به جستجوی کشورها

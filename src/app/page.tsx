@@ -22,11 +22,12 @@ export default async function Home() {
           <HeroTitle />
         </div>
       </section>
+      <section id="features">
+        <FeatureSection />
+      </section>
 
-      <FeatureSection />
-
-      <section id='countris'>
-      <CountrySection initialCountries={countries} />
+      <section id="countries">
+        <CountrySection initialCountries={countries} />
       </section>
     </>
   )
