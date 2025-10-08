@@ -5,7 +5,7 @@ import { fetchCountries } from '@/utils/api/Request'
 import CountrySection from '@/components/Landing/CountrySection/CountrySection'
 
 export default async function Home() {
-  const countries = await fetchCountries()
+  const countries = await  fetchCountries()
 
   return (
     <>
