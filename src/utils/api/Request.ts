@@ -40,3 +40,46 @@ export async function fetchCountriesByRegion(
     return []
   }
 }
+
+export async function fetchCountryDetails(
+  name: string
+): Promise<Country | null> {
+  try {
+    const res = await fetch(
+      `https://restcountries.com/v3.1/name/${name}?fullText=true`,
+      {
+        next: { revalidate: 120 },
+      }
+    )
+
+    if (!res.ok) return null
+
+    const data: Country[] = await res.json()
+    return data[0] || null
+  } catch {
+    return null
+  }
+}
+
+
+// utils/api/Request.ts
+import { CountryDetails } from '@/types/module'
+
+export async function fetchNeighborCountries(
+  codes: string[]
+): Promise<CountryDetails[]> {
+  if (!codes || codes.length === 0) return []
+  
+  try {
+    const res = await fetch(
+      `https://restcountries.com/v3.1/alpha?codes=${codes.join(',')}&fields=name,flags,cca3`,
+      { cache: 'no-store' }
+    )
+    if (!res.ok) return []
+    const data: CountryDetails[] = await res.json()
+    return data
+  } catch {
+    return []
+  }
+}
+

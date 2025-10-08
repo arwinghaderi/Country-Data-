@@ -25,7 +25,9 @@ export default async function Home() {
 
       <FeatureSection />
 
+      <section id='countris'>
       <CountrySection initialCountries={countries} />
+      </section>
     </>
   )
 }

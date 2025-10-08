@@ -5,14 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Globe2 } from 'lucide-react'
-
-interface Country {
-  name: { common: string }
-  capital?: string[]
-  flags?: { png: string; alt?: string }
-  region?: string
-  population?: number
-}
+import { Country } from '../../../types/module'
 
 interface CountryCardProps {
   countries: Country[]
@@ -27,7 +20,7 @@ export default function CountryCard({ countries }: CountryCardProps) {
     const timeout = setTimeout(() => {
       setDisplayedCountries(countries)
       setLoading(false)
-    }, 400) 
+    }, 400)
     return () => clearTimeout(timeout)
   }, [countries])
 
@@ -59,7 +52,9 @@ export default function CountryCard({ countries }: CountryCardProps) {
               {displayedCountries.map((country, index) => (
                 <Link
                   key={country.name.common}
-                  href={`/country/${encodeURIComponent(country.name.common)}`}
+                  href={`/countries-details/${encodeURIComponent(
+                    country.name.common
+                  )}`}
                 >
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
